@@ -13,4 +13,4 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-    - template: .pipelines/templates/ios-ci-template.yml
+    - template: templates/ios-ci-template.yml
