@@ -12,6 +12,7 @@ steps:
     xcodeVersion: '12'
     packageApp: false
     signingOption: 'default'
+    sdk: 'iphonesimulator'
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 12'
 - task: Xcode@5
@@ -22,5 +23,6 @@ steps:
     xcodeVersion: '12'
     packageApp: false
     signingOption: 'default'
+    sdk: 'iphonesimulator'
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 12'
