@@ -1,0 +1,10 @@
+steps:
+- task: InstallAppleCertificate@2
+  displayName: 'Install Certificates'
+  inputs:
+    certSecureFile: 'Certificates_Nov_19_B.p12'
+    keychain: 'temp'
+- task: InstallAppleProvisioningProfile@1
+  displayName: 'Install Provisioning Profile'
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
