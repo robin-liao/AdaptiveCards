@@ -4,9 +4,17 @@ schedules:
     branches:
       include:
         - main
-pool:
-  vmImage: 'macos-latest'
+jobs:
+  - job: specLint
+    displayName: 'check podspec health'
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+        - template: templates/ios-spec-lint-template.yml
 
-steps:
-    - template: templates/ios-spec-lint-template.yml
-    - template: templates/ios-ci-template.yml
+  - job: unitTest
+    displayName: 'check code health'
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+        - template: templates/ios-ci-template.yml
