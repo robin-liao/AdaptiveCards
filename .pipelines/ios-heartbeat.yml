@@ -18,3 +18,10 @@ jobs:
       vmImage: 'macos-latest'
     steps:
         - template: templates/ios-ci-template.yml
+
+  - job: 
+    displayName: 'check certificate health'
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+        - template: templates/ios-install-cert-template.yml
