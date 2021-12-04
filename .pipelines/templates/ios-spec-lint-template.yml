@@ -5,4 +5,4 @@ steps:
     targetType: 'inline'
     script: |
       # Write your commands here
-      pod trunk lint  ./source/ios/tools/AdaptiveCards.podspec --allow-warnings
+      pod spec lint  ./source/ios/tools/AdaptiveCards.podspec --allow-warnings

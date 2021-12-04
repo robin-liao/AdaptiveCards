@@ -8,5 +8,5 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-    - template: templates/ios-ci-template.yml
     - template: templates/ios-spec-lint-template.yml
+    - template: templates/ios-ci-template.yml
