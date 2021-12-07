@@ -50,8 +50,8 @@ jobs:
     - certificateTest
     condition: 
     variables:
-        j1: ${{dependencies.specLint.result}}
-        j2: ${{dependencies.unitTest.result}}
-        j3: ${{dependencies.certificateTest.result}}
+        j1: $[dependencies.specLint.result]
+        j2: $[dependencies.unitTest.result]
+        j3: $[dependencies.certificateTest.result]
     steps:
       - bash: echo '$(j1), $(j2), $(j3)'
