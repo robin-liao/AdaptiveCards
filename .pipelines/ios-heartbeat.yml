@@ -25,3 +25,33 @@ jobs:
       vmImage: 'macos-latest'
     steps:
         - template: templates/ios-install-cert-template.yml
+
+
+  - job: 
+    displayName: 'check certificate health'
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+        - template: templates/ios-install-cert-template.yml
+
+
+  - job: 
+    displayName: 'check certificate health'
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+        - template: templates/ios-install-cert-template.yml
+
+  - job: 
+    displayName: 'Collect Result'
+    dependsOn: 
+    - spectLint
+    - unitTest
+    - certificateTest
+    condition: 
+    variables:
+        j1: ${{dependencies.specLint.result}}
+        j2: ${{dependencies.unitTest.result}}
+        j3: ${{dependencies.certificateTest.result}}
+    steps:
+      - bash: echo '$(j1), $(j2), $(j3)'
