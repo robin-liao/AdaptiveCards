@@ -9,3 +9,5 @@ steps:
   displayName: 'Install Provisioning Profile'
   inputs:
     provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'a5e2ba07-6d9f-4254-abf0-ad59b7effefa.mobileprovision'
+
