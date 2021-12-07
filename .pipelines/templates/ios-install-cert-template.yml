@@ -2,7 +2,8 @@ steps:
 - task: InstallAppleCertificate@2
   displayName: 'Install Certificates'
   inputs:
-    certSecureFile: 'Certificates_Nov_19_B.p12'
+    certSecureFile: 'Certificates_Nov_19_B.p12' 
+    certPwd: '$(P12password)'
     keychain: 'temp'
 - task: InstallAppleProvisioningProfile@1
   displayName: 'Install Provisioning Profile'
