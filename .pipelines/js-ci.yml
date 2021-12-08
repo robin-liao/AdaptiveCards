@@ -37,6 +37,14 @@ steps:
     sourceFolder: source/nodejs/adaptivecards-react-testapp
     contents: '**' 
     targetFolder: source/adaptivecards-react-testapp
+  displayName: Copy adaptivecards-react-testapp
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: source/nodejs/adaptivecards-ui-testapp
+    contents: '**' 
+    targetFolder: source/adaptivecards-ui-testapp
+  displayName: Copy adaptivecards-ui-testapp
 
 - bash: |
    npm ci 
@@ -58,12 +66,25 @@ steps:
       sourceFolder: source/nodejs/${{ target_package }}
       contents: '*.tgz' 
       targetFolder: source/adaptivecards-react-testapp
+    displayName: Copy tgz to adaptivecards-react-testapp
 
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: source/nodejs/${{ target_package }}
+      contents: '*.tgz' 
+      targetFolder: source/adaptivecards-ui-testapp
+    displayName: Copy tgz to adaptivecards-ui-testapp
+
+- bash: |
+    npm i *.tgz
+    cat package.json
+    npm run build
+  workingDirectory: source/adaptivecards-ui-testapp
+  displayName: 'Install the built package and build the adaptivecards-ui-testapp'
 
 - bash: |
     npm i *.tgz
     cat package.json
     npm run build
   workingDirectory: source/adaptivecards-react-testapp
-  displayName: 'Install the built package and build the project'
-
+  displayName: 'Install the built package and build the adaptivecards-react-testapp'
