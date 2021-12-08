@@ -34,6 +34,13 @@ steps:
 
 - task: CopyFiles@2
   inputs:
+    sourceFolder: source/nodejs
+    contents: 'tsconfig.*' 
+    targetFolder: source
+  displayName: Copy tsconfig
+
+- task: CopyFiles@2
+  inputs:
     sourceFolder: source/nodejs/adaptivecards-react-testapp
     contents: '**' 
     targetFolder: source/adaptivecards-react-testapp
