@@ -38,4 +38,12 @@ jobs:
         j2: $[dependencies.unitTest.result]
         j3: $[dependencies.certificateCheck.result]
     steps:
-      - bash: echo '##vso[task.setvariable variable=emailContents;]\n1. spec linting is $(j1)\n2. code health check is $(j2)\n3. certificate check is $(j3).' \n  echo '${emailContents}'
+      - bash: echo '##vso[task.setvariable variable=emailContents;]\n1. spec linting is $(j1)\n2. code health check is $(j2)\n3. certificate check is $(j3).'
+      - task: PkgESSendMail@10
+       inputs:
+         to: 'joswo@microsoft.com'
+         subject: 'iOS Release Pipeline Health Check'
+         bodyType: 'string'
+         body: |
+           Test Results
+           $(emailContents)
