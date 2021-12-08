@@ -27,12 +27,12 @@ jobs:
         - template: templates/ios-install-cert-template.yml
 
   - job: 
-    displayName: 'Collect Result'
+    displayName: 'collect result'
     dependsOn: 
     - specLint
     - unitTest
     - certificateCheck
-    condition: 
+    condition: always() 
     variables:
         j1: $[dependencies.specLint.result]
         j2: $[dependencies.unitTest.result]
