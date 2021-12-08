@@ -4,11 +4,9 @@ pr:
   branches:
     include:
     - main
-
-trigger:
-  branches:
+  paths:
     include:
-    - main
+    - source/nodejs
 
 pool:
   name: Azure Pipelines
@@ -64,6 +62,7 @@ steps:
 
 - bash: |
     npm i *.tgz
+    cat package.json
     npm run build
   workingDirectory: source/adaptivecards-react-testapp
   displayName: 'Install the built package and build the project'
